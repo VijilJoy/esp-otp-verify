@@ -11,12 +11,13 @@ app.get("/", (req, res) => {
 });
 var timer;
 app.get("/generate", (req, res) => {
+  if (generated_otp != "") return res.status(200).send(`${generated_otp}`);
   generated_otp = Math.floor(1000 + Math.random() * 9000);
   clearTimeout(timer);
   timer = setTimeout(() => {
     generated_otp = "";
     console.log("OTP Expired ");
-  }, 10000);
+  }, 2 * 60000);
 
   res.status(200).send(`${generated_otp}`);
 });
