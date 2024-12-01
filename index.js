@@ -15,7 +15,7 @@ app.get("/generate", (req, res) => {
   clearTimeout(timer);
   timer = setTimeout(() => {
     generated_otp = "";
-    console.log("OTP Expired");
+    console.log("OTP Expired ");
   }, 10000);
 
   res.status(200).send(`${generated_otp}`);
