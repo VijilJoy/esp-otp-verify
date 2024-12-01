@@ -12,6 +12,11 @@ app.get("/", (req, res) => {
 
 app.get("/generate", (req, res) => {
   generated_otp = Math.floor(1000 + Math.random() * 9000);
+  setTimeout(() => {
+    generated_otp = "";
+    console.log("OTP Expired");
+  }, 2 * 60000);
+
   res.status(200).send(`${generated_otp}`);
 });
 
