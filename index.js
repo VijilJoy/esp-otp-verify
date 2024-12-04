@@ -6,9 +6,6 @@ const port = process.env.PORT || 3000;
 app.use(cors());
 var generated_otp = "";
 
-app.get("/", (req, res) => {
-  res.redirect("/generate");
-});
 var timer;
 app.get("/generate", (req, res) => {
   if (generated_otp != "") return res.status(200).send(`${generated_otp}`);
